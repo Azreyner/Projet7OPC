@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+  rel="stylesheet"  type='text/css'>
+    <title>Les petits plats</title>
+  </head>
+
+  <body>
+    <div id="blocGlobal">
+      <header>
+        <img src="./assets/logo/logoPetiChef.svg" class="logo" alt="Les petits plats Home page"/>
+        <h1>Les Petits Plats</h1>
+      </header>
+      <nav>
+        <div class="laSearchBar">
+          <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+          <input type="text" id="searchBar" placeholder="Rechercher une recette" oninput="inputRecherche(this, false)">
+        </div>
+        <div id="zoneFiltre">
+
+        </div>
+        <div class="filtres">
+            <div class="dropdown">
+                <button onclick="monDropdown(this)" class="dropbtn bleu">
+                  <i class="fa-solid fa-chevron-down icon"></i>
+                  <input type="text" class="myInput bleu" placeholder="ingrédients" id="inputIngredients" onkeyup="filterFunction(this)">
+                </button>
+                <div id="myDropdown ingredient" class="dropdown-content bleu">
+                </div>
+            </div>
+            <div class="dropdown">
+                <button onclick="monDropdown(this)" class="dropbtn vert">
+                  <i class="fa-solid fa-chevron-down icon"></i>
+                  <input type="text" class="myInput vert" placeholder="Appareils" id="inputAppareils" onkeyup="filterFunction(this)">
+                </button>
+                <div id="myDropdown appareils" class="dropdown-content vert">
+                </div>
+            </div>
+            <div class="dropdown">
+                <button onclick="monDropdown(this)" class="dropbtn rouge">
+                  <i class="fa-solid fa-chevron-down icon"></i>
+                  <input type="text" class="myInput rouge" placeholder="Ustensiles" id="inputUstensiles" onkeyup="filterFunction(this)">
+                </button>
+                <div id="myDropdown ustensiles" class="dropdown-content rouge">
+                </div>
+            </div>
+        </div>
+      </nav>
+      <main id="main">
+      </main>
+      <div id="aucuneRecette" class="recetteTrouve">
+        <h3>Aucune recette ne correspond à votre critère… vous pouvez
+          chercher « tarte aux pommes », « poisson », etc.
+        </h3>
+      </div>
+    </div>
+
+    <script src="./data/recipes.js"></script>
+    <script src="./scripts/factories/ingredientFactory.js"></script>
+    <script src="./scripts/factories/applianceFactory.js"></script>
+    <script src="./scripts/factories/ustensilsFactory.js"></script>
+    <script src="./scripts/factories/recipeFactory.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>
