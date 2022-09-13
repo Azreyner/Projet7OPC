@@ -187,17 +187,17 @@ function inputRecherche(lInupt, isFromInit){
   if(!(input.length < 3)){
     inputActif = true;
 
-    listeRecette.forEach(element => {
-      if(checkID(element, input) || checkDescription(element, input) || checkIngredient(element, input)){
-        if(element.hasAttribute("style")){
-          element.removeAttribute("style");
+    for(let x = 0; x < listeRecette.length; x++) {
+      
+      if(checkID(listeRecette[x], input) || checkDescription(listeRecette[x], input)  || checkIngredient(listeRecette[x], input)){
+        if(listeRecette[x].hasAttribute("style")){
+          listeRecette[x].removeAttribute("style");
         }
-        
       }
       else{
-        element.style.display = "none";
+        listeRecette[x].style.display = "none";
       }
-    })
+    }
   }
   else if(input.length < 3 && inputActif == true){
 
@@ -241,18 +241,14 @@ function checkID(element, input){
 function checkIngredient(element, input){
   let listeIngredient = element.querySelectorAll('li');
   
-  listeIngredient.forEach(listeElement => {
-    let ingredient = listeElement.firstChild.innerText.toUpperCase()
-    //console.log(listeElement)
-    //console.log(ingredient, "=", input.toUpperCase())
-    if(ingredient.includes(input.toUpperCase())){
+  for (let x = 0; x < listeIngredient.length; x++) {
+    if(listeIngredient[x].innerText.toUpperCase().includes(input.toUpperCase())){
       return true;
     }
     else{
       return false;
     }
-
-  })
+  }
 
 }
 
